@@ -1,3 +1,4 @@
+
 let board=document.querySelector(".board") 
 let player=document.querySelector(".player") 
 let playAgain=document.querySelector(".playAgain") 
@@ -98,9 +99,18 @@ function checkWon(){
 
 
 
+
 // used these sources for reference // 
 //// reference for takeTurn and checkWon https://github.com/kubowania/connect-four
 // https://dev.to/fakorededamilola/building-a-connect-four-game-with-javascript-1f45 
+
+// restart the game and clear board 
+playAgain.addEventListener("click", reset)
+function reset(){
+    board.innerHTML="" 
+    loadDOM() 
+    currentPlayer === 1
+}
 
 
 // animate connect four headers 
@@ -144,12 +154,3 @@ function animate(){
 };
 
 document.querySelector('.currentPlayer', ".move", ".miniconnect").onclick = animate();
-
-// restart the game and clear board 
-playAgain.addEventListener("click", reset)
-function reset(){
-    board.innerHTML="" 
-    loadDOM() 
-    currentPlayer === 1
-}
-
