@@ -81,16 +81,30 @@ function takeTurn(){
     }
 };
 
+// var pieces = document.getElementsByClassName(".square")
+// for(var i = 0; i<pieces.length; i++){
+//     pieces[i].addEventListener("click", function(){
+//         document.getElementsByClassName("square").style.color = "grey"
+//     });
+// }
+// piece.addEventListener('mouseover', colorChange)
+// function colorChange(){
+//     document.getElementsByClassName("square").style.color = "grey"
+// };
+
+
+
+
 function checkWon(){
     let spaces = document.querySelectorAll(".board div")
     for (let y=0;y<possibleWins.length;y++){
     let square =possibleWins[y]
     if(square.every(q=>spaces[q].classList.contains("player-one"))){
-        // document.getElementById("change").textContent = "Player 1 Wins!"
+        document.getElementById("change").textContent = "Player 1 Wins!"
       setTimeout(() =>alert("Red wins!"), 200)
       setTimeout(() =>restart.style.display="flex", 500)
       }if(square.every(q=>spaces[q].classList.contains("player-two"))){
-        // document.getElementById("change").textContent = "Player 2 Wins!"
+        document.getElementById("change").textContent = "Player 2 Wins!"
       setTimeout(() =>alert("Black wins!"), 200)
       setTimeout(() =>restart.style.display="flex", 500)
     }
@@ -120,17 +134,14 @@ let header1 = anime({
     rotate: 360
 }); 
 
-// let page_load = anime({
-//     targets: ".body",
-//     translateY: 20,
-// })
-
+//animate other connect four headers 
 let animated_words = anime({
     targets: '.move',
     translateY: 20, 
     rotate: 360 
 }); 
 
+//animate SVG circles showing player colors 
 let disc_drop = anime({
     targets: '.miniconnect', 
     translateY: 15,
@@ -143,7 +154,6 @@ let disc_drop = anime({
         }
     }
 });
-
 
 function animate(){
     header1.restart;
